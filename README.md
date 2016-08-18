@@ -1,11 +1,15 @@
 # Rotten Ketchup data
 
 ### Setup
+    # Installation
     git clone https://github.com/stcrestrada/rotten_ketchup.git
     cd rotten_ketchup
+    
+    '''sh
+    # initialize inenv
     pip install inenv
     inenv init rotten_ketchup
-    
+    '''
     # Generate Django secret key:
     from root directory run python base/utils.py
     This will return a randomly generated 'SECRET_KEY'
@@ -27,7 +31,7 @@
 #### Pull data
  
     # Begin pulling data in another process/session
-    python manage.py shell_plus
+        python manage.py shell_plus
     from rotten_ketchup.utils import load_data
 
     # Process Data
