@@ -5,15 +5,18 @@
     git clone https://github.com/stcrestrada/rotten_ketchup.git
     cd rotten_ketchup
     
-'''sh
 # initialize inenv
-pip install inenv
-inenv init rotten_ketchup
+'''sh
+$ pip install inenv
+$ inenv init rotten_ketchup
+
 '''
     
 # Generate Django secret key:
-from root directory run python base/utils.py
-This will return a randomly generated 'SECRET_KEY'
+'''sh
+$ python base/utils.py
+'''
+
 export SECRET_KEY="your_secret_key"
 
 # Create local psql database
@@ -21,18 +24,23 @@ psql
 CREATE DATABASE movies;
 
 # Migrations
-python manage.py migrate
+'''sh
+$ python manage.py migrate
+'''
 
 # Create a superuser
+'''sh
 python manage.py createsuperuser
-    
+'''
 
 ### Usage
 
 #### Pull data
  
 # Begin pulling data in another process/session
-    python manage.py shell_plus
+'''sh
+python manage.py shell_plus
+'''
 from rotten_ketchup.utils import load_data
 
 # Process Data
@@ -40,7 +48,9 @@ load_data()
 exit()
 
 # Run serverer
+'''sh
  python manage.py runserver
+'''
 ### Endpoints
 
 # Login:
@@ -121,11 +131,15 @@ INSTALLED_APPS = [
 http://127.0.0.1:8000/dev/rt-admin - create a token for your
 user(s).
 # Re-run migrations
-python manage.py makemigrations
-python manage.py migrate
+'''sh
+$ python manage.py makemigrations
+$ python manage.py migrate
+'''
 
 # run server
-python manage.py runserver
+'''sh
+$ python manage.py runserver
+'''
 
 # Postman Credentials
 headers: 
