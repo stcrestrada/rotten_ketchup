@@ -164,7 +164,7 @@ $ python manage.py runserver
 # Using Postman
 
 ```sh
-http://127.0.0.1:8000/dev/rt-admin - create a token for your
+http://127.0.0.1:8000/dev/rk-admin - create a token for your
 user(s).
 ```
 
