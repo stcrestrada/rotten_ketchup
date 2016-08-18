@@ -1,10 +1,10 @@
 # Rotten Ketchup data
 
 ### Setup
-
+    git clone https://github.com/stcrestrada/rotten_ketchup.git
+    cd rotten_ketchup
     pip install inenv
     inenv init rotten_ketchup
-    inenv rotten_ketchup
     
     # Generate Django secret key:
     from root directory run python base/utils.py
