@@ -1,11 +1,12 @@
 # Rotten Ketchup data
 
 ### Setup
-    # Installation
-    git clone https://github.com/stcrestrada/rotten_ketchup.git
-    cd rotten_ketchup
+# Installation
+git clone https://github.com/stcrestrada/rotten_ketchup.git
+cd rotten_ketchup
     
 # initialize inenv
+
 '''sh
 $ pip install inenv
 $ inenv init rotten_ketchup
@@ -13,6 +14,7 @@ $ inenv init rotten_ketchup
 '''
     
 # Generate Django secret key:
+
 '''sh
 $ python base/utils.py
 '''
@@ -20,10 +22,12 @@ $ python base/utils.py
 export SECRET_KEY="your_secret_key"
 
 # Create local psql database
+
 psql
 CREATE DATABASE movies;
 
 # Migrations
+
 '''sh
 $ python manage.py migrate
 '''
@@ -38,19 +42,24 @@ python manage.py createsuperuser
 #### Pull data
  
 # Begin pulling data in another process/session
+
 '''sh
 python manage.py shell_plus
 '''
+
 from rotten_ketchup.utils import load_data
 
 # Process Data
+
 load_data()
 exit()
 
-# Run serverer
+# Run server
+
 '''sh
  python manage.py runserver
 '''
+
 ### Endpoints
 
 # Login:
@@ -95,17 +104,22 @@ http://127.0.0.1:8000/api/v1/movies/?title=A Haunting
 
      
 # Change Pagination
+
 '''python
 'PAGE_SIZE': 5,
 '''
+
 # Switch to TokenAuthentication
+
 '''python
 Currently Set to session authentication:
 'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     )
 '''
+
 # add to installed apps
+
 '''python
 INSTALLED_APPS = [
    
@@ -115,7 +129,9 @@ INSTALLED_APPS = [
    
 ]
 '''
+
 # Add Throttle
+
 '''python
 'DEFAULT_THROTTLE_CLASSES': (
         'rest_framework.throttling.AnonRateThrottle',
@@ -131,12 +147,14 @@ INSTALLED_APPS = [
 http://127.0.0.1:8000/dev/rt-admin - create a token for your
 user(s).
 # Re-run migrations
+
 '''sh
 $ python manage.py makemigrations
 $ python manage.py migrate
 '''
 
 # run server
+
 '''sh
 $ python manage.py runserver
 '''
