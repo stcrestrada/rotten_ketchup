@@ -2,8 +2,11 @@
 
 ## Setup
 ### Installation
+
+```sh
 git clone https://github.com/stcrestrada/rotten_ketchup.git
 cd rotten_ketchup
+```
     
 ### initialize inenv
 
