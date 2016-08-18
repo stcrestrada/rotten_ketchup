@@ -32,8 +32,9 @@
 
     # Process Data
     load_data()
+    exit()
     
-     # Run server
+    # Run serverer
      python manage.py runserver
 ### Endpoints
 
@@ -71,44 +72,55 @@
     eg: "A Haunting" is a prefix of "A Haunting We Will Go"
     http://127.0.0.1:8000/api/v1/movies/?title=A Haunting
      
+                       
+   
+### Custom Configuration In settings.py
+ 
+### Rest Framework 
+
+     
+    # Change Pagination
+    'PAGE_SIZE': 5,
+ 
+    # Switch to TokenAuthentication
+    Currently Set to session authentication:
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework.authentication.TokenAuthentication',
+        )
+    # add to installed apps
+    INSTALLED_APPS = [
+       
+        # Third party apps
+        'rest_framework.authtoken',
+        'rest_framework',
+       
+    ]
     
-### Postman
+    # Add Throttle
+    'DEFAULT_THROTTLE_CLASSES': (
+            'rest_framework.throttling.AnonRateThrottle',
+            'rest_framework.throttling.UserRateThrottle'
+        ),
+        'DEFAULT_THROTTLE_RATES': {
+            'anon': '5/minute',
+            'user': '25/minute'
+        }
+
+     
+### Using Postman
+    http://127.0.0.1:8000/dev/rt-admin - create a token for your
+    user(s).
+    # Re-run migrations
+    python manage.py makemigrations
+    python manage.py migrate
     
-    # Token
-    http://127.0.0.1:8000/admin - view token and/or create a token if needed
+    # run server
+    python manage.py runserver
     
     # Postman Credentials
     headers: 
     key: Authorization value: Token 4132286bfaa881030cf4a9151f036194134dced0
-                    
     
-    
-### Custom Configuration In settings.py
- 
-### Rest Framework 
-    # Adjust Throttle Rates
-    In settings.py an anonymous user and authenticated user throttle
-    rate is configurable. 
-    Currently set at 
-    'DEFAULT_THROTTLE_RATES': {
-            'anon': '5/minute',
-            'user': '25/minute'
-        }
-    
-    # Change Pagination
-    'PAGE_SIZE': 5,
-    
-    # Switch to SessionAuthentication
-    Currently Set to token authentication:
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework.authentication.TokenAuthentication',
-        )
-    Session authentication allows you to use CRUD operation in the rest application versus token authentication where
-    you must use postman for crud operations.
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework.authentication.SessionAuthentication',
-        )
-     and remove 'rest_framework.authtoken' from INSTALLED_APPS
     
 ### Project Instructions:
     #Attached is a text file mapping movie information to it's genre information. 
