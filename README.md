@@ -13,6 +13,7 @@ cd rotten_ketchup
 ```sh
 $ pip install inenv
 $ inenv init rotten_ketchup
+$ inenv rotten_ketchup
 
 ```
     
