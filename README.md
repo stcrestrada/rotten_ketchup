@@ -1,11 +1,11 @@
 # Rotten Ketchup data
 
-### Setup
-# Installation
+## Setup
+### Installation
 git clone https://github.com/stcrestrada/rotten_ketchup.git
 cd rotten_ketchup
     
-# initialize inenv
+### initialize inenv
 
 ```sh
 $ pip install inenv
@@ -13,7 +13,7 @@ $ inenv init rotten_ketchup
 
 ```
     
-# Generate Django secret key:
+### Generate Django secret key:
 
 ```sh
 $ python base/utils.py
@@ -21,35 +21,35 @@ $ export SECRET_KEY="your_secret_key"
 ```
 
 
-# Create local psql database
+### Create local psql database
 ```sh
 psql
 CREATE DATABASE movies;
 ```
 
-# Migrations
+### Migrations
 
 ```sh
 $ python manage.py migrate
 ```
 
-# Create a superuser
+### Create a superuser
 ```sh
 $ python manage.py createsuperuser
 ```
 
-### Usage
+# Usage
 
-#### Pull data
+## Pull data
  
-# Begin pulling data in another process/session
+### Begin pulling data in another process/session
 
 ```sh
 $ python manage.py shell_plus
 ```
 
 
-# Process Data
+### Process Data
 
 ```sh
 from rotten_ketchup.utils import load_data
@@ -58,45 +58,45 @@ load_data()
 exit()
 ```
 
-# Run server
+### Run server
 
 ```sh
  python manage.py runserver
 ```
 
-### Endpoints
+# Endpoints
 
-# Login:
+### Login:
 http://127.0.0.1:8000/api-auth-login/
 
-# Returns a list of movies
+### Returns a list of movies
 http://127.0.0.1:8000/api/v1/movies
 
-# Returns #movie_uuid
+### Returns #movie_uuid
 http://127.0.0.1:8000/api/v1/movies/movie_uuid
 
-# Returns a list of reviews for movie #movie_uuid
+### Returns a list of reviews for movie #movie_uuid
 http://127.0.0.1:8000/api/v1/movies/movie_uuid/reviews/
 
-# Returns review #review_uuid for movie #movie_uuid
+### Returns review #review_uuid for movie #movie_uuid
 http://127.0.0.1:8000/api/v1/movies/movie_uuid/reviews/review_uuid
 
-# Returns a list of genres
+### Returns a list of genres
 http://127.0.0.1:8000/api/v1/genres
 
-# Returns genre #genre_uuid
+### Returns genre #genre_uuid
 http://127.0.0.1:8000/api/v1/genres/genre_uuid
 
-# Returns a list of movies for genre #genre_uuid
+### Returns a list of movies for genre #genre_uuid
 http://127.0.0.1:8000/api/v1/genres/genre_uuid/movies
 
-# Returns movie #movie_uuid for genre #genre_uuid
+### Returns movie #movie_uuid for genre #genre_uuid
 http://127.0.0.1:8000/api/v1/genres/genre_uuid/movies/movie_uuid
 
-# Returns genres with greatest film count for that year
+### Returns genres with greatest film count for that year
 http://127.0.0.1:8000/api/v1/genres/?year=2012
 
-# How many movie titles are the prefix of another movie title ?  
+### How many movie titles are the prefix of another movie title ?  
 eg: "A Haunting" is a prefix of "A Haunting We Will Go"
 http://127.0.0.1:8000/api/v1/movies/?title=A Haunting
  
@@ -104,16 +104,16 @@ http://127.0.0.1:8000/api/v1/movies/?title=A Haunting
 
 ### Custom Configuration In settings.py
  
-### Rest Framework 
+## Rest Framework 
 
      
-# Change Pagination
+### Change Pagination
 
 ```python
 'PAGE_SIZE': 5,
 ```
 
-# Switch to TokenAuthentication
+### Switch to TokenAuthentication
 
 ```python
 Currently Set to session authentication:
@@ -122,7 +122,7 @@ Currently Set to session authentication:
     )
 ```
 
-# add to installed apps
+### add to installed apps
 
 ```python
 INSTALLED_APPS = [
@@ -134,7 +134,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-# Add Throttle
+### Add Throttle
 
 ```python
 'DEFAULT_THROTTLE_CLASSES': (
@@ -146,32 +146,33 @@ INSTALLED_APPS = [
         'user': '25/minute'
     }
 ```
- 
-### Using Postman
-http://127.0.0.1:8000/dev/rt-admin - create a token for your
-user(s).
-# Re-run migrations
+
+### Run migrations again:
 
 ```sh
-
 $ python manage.py makemigrations
 $ python manage.py migrate
-```
 
-# run server
-
-```sh
+# runserver
 $ python manage.py runserver
 ```
+ 
+# Using Postman
 
-# Postman Credentials
+```sh
+http://127.0.0.1:8000/dev/rt-admin - create a token for your
+user(s).
+```
+
+### Postman Credentials
 ```sh
 headers: 
 key: Authorization value: Token 4132286bfaa881030cf4a9151f036194134dced0
 ```
     
-### Project Instructions:
-#Attached is a text file mapping movie information to it's genre information. 
+## Project Instructions:
+```sh
+Attached is a text file mapping movie information to it's genre information. 
 Using Django we would like you to do the following:
 
  Load the `movies_genres.tsv` into the Django database
@@ -188,6 +189,6 @@ Using Django we would like you to do the following:
  How many movie titles are the prefix of another movie title ?  eg: "A Haunting" is a prefix of "A Haunting We Will Go"
 
 
-
+```
 
     
