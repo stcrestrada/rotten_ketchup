@@ -71,7 +71,7 @@ exit()
 # Endpoints
 
 ### Login:
-http://127.0.0.1:8000/api-auth-login/
+http://127.0.0.1:8000/api-auth/login/
 
 ### Returns a list of movies
 http://127.0.0.1:8000/api/v1/movies
