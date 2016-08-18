@@ -17,14 +17,15 @@ $ inenv init rotten_ketchup
 
 ```sh
 $ python base/utils.py
+$ export SECRET_KEY="your_secret_key"
 ```
 
-export SECRET_KEY="your_secret_key"
 
 # Create local psql database
-
+```sh
 psql
 CREATE DATABASE movies;
+```
 
 # Migrations
 
@@ -47,12 +48,15 @@ $ python manage.py createsuperuser
 $ python manage.py shell_plus
 ```
 
-from rotten_ketchup.utils import load_data
 
 # Process Data
 
+```sh
+from rotten_ketchup.utils import load_data
+
 load_data()
 exit()
+```
 
 # Run server
 
@@ -161,9 +165,10 @@ $ python manage.py runserver
 ```
 
 # Postman Credentials
+```sh
 headers: 
 key: Authorization value: Token 4132286bfaa881030cf4a9151f036194134dced0
-
+```
     
 ### Project Instructions:
 #Attached is a text file mapping movie information to it's genre information. 
