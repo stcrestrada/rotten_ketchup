@@ -1,4 +1,4 @@
-from django.db.models import Count
+from __future__ import absolute_import
 
 from rest_framework import serializers
 
@@ -12,7 +12,6 @@ class ReviewSerializer(serializers.ModelSerializer):
             'email': {'write_only': True}
         }
         fields = (
-            'review_id',
             'movie',
             'name',
             'email',

@@ -1,11 +1,10 @@
-from django.shortcuts import get_object_or_404
+from __future__ import absolute_import
 
-from django.db.models import Count
+from django.shortcuts import get_object_or_404
 
 from rest_framework import generics
 from rest_framework.decorators import detail_route
 from rest_framework.response import Response
-from rest_framework import serializers
 
 from apps.movies.models import Movie
 from apps.movies.models import Review
@@ -50,6 +49,9 @@ class RetrieveUpdateDestroyMovie(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ListCreateReview(generics.ListCreateAPIView):
+    """
+    Performs CRUD operations for Review queryset
+    """
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 

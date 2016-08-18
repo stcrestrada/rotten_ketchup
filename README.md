@@ -21,8 +21,6 @@
     # Create a superuser
     python manage.py createsuperuser
     
-    # Run server
-    python manage.py runserver
 
 ### Usage
 
@@ -30,10 +28,13 @@
  
     # Begin pulling data in another process/session
     python manage.py shell_plus
-    from rotten_ketchup.utils import load_movies
+    from rotten_ketchup.utils import load_data
 
     # Process Data
-    load_movies()
+    load_data()
+    
+     # Run server
+     python manage.py runserver
 ### Endpoints
 
     # Login:
