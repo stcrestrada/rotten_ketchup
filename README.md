@@ -7,17 +7,17 @@ cd rotten_ketchup
     
 # initialize inenv
 
-'''sh
+```sh
 $ pip install inenv
 $ inenv init rotten_ketchup
 
-'''
+```
     
 # Generate Django secret key:
 
-'''sh
+```sh
 $ python base/utils.py
-'''
+```
 
 export SECRET_KEY="your_secret_key"
 
@@ -28,14 +28,14 @@ CREATE DATABASE movies;
 
 # Migrations
 
-'''sh
+```sh
 $ python manage.py migrate
-'''
+```
 
 # Create a superuser
-'''sh
-python manage.py createsuperuser
-'''
+```sh
+$ python manage.py createsuperuser
+```
 
 ### Usage
 
@@ -43,9 +43,9 @@ python manage.py createsuperuser
  
 # Begin pulling data in another process/session
 
-'''sh
-python manage.py shell_plus
-'''
+```sh
+$ python manage.py shell_plus
+```
 
 from rotten_ketchup.utils import load_data
 
@@ -56,9 +56,9 @@ exit()
 
 # Run server
 
-'''sh
+```sh
  python manage.py runserver
-'''
+```
 
 ### Endpoints
 
@@ -105,22 +105,22 @@ http://127.0.0.1:8000/api/v1/movies/?title=A Haunting
      
 # Change Pagination
 
-'''python
+```python
 'PAGE_SIZE': 5,
-'''
+```
 
 # Switch to TokenAuthentication
 
-'''python
+```python
 Currently Set to session authentication:
 'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     )
-'''
+```
 
 # add to installed apps
 
-'''python
+```python
 INSTALLED_APPS = [
    
     # Third party apps
@@ -128,11 +128,11 @@ INSTALLED_APPS = [
     'rest_framework',
    
 ]
-'''
+```
 
 # Add Throttle
 
-'''python
+```python
 'DEFAULT_THROTTLE_CLASSES': (
         'rest_framework.throttling.AnonRateThrottle',
         'rest_framework.throttling.UserRateThrottle'
@@ -141,23 +141,24 @@ INSTALLED_APPS = [
         'anon': '5/minute',
         'user': '25/minute'
     }
-'''
+```
  
 ### Using Postman
 http://127.0.0.1:8000/dev/rt-admin - create a token for your
 user(s).
 # Re-run migrations
 
-'''sh
+```sh
+
 $ python manage.py makemigrations
 $ python manage.py migrate
-'''
+```
 
 # run server
 
-'''sh
+```sh
 $ python manage.py runserver
-'''
+```
 
 # Postman Credentials
 headers: 
